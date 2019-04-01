@@ -91,17 +91,15 @@ export class App {
             cache: "no-cache"
           });
 
-          log("UserInfo request: ", request);
-
           fetch(request)
             .then(result => result.json())
             .then(user => {
               log("User Info ", user);
               this.userInfo = user;
               this.updateUi();
-
+              // get user/person image...
               let imgRequest = new Request(
-                `${webApi}v1/Person/${user.PersonId}/Image`,
+                `${webApi}v1/Person/${user.PersonId}/Image?ifBlank=ClearPixel`,
                 {
                   headers: new Headers({
                     Authorization: `Bearer ${authTenantInfo.accessToken}`,
@@ -111,9 +109,7 @@ export class App {
                   cache: "no-cache"
                 }
               );
-
               log("Fetching user image...");
-
               fetch(imgRequest)
                 .then(resp => {
                   resp.arrayBuffer().then(buffer => {
@@ -126,7 +122,6 @@ export class App {
                     bytes.forEach(b => (binary += String.fromCharCode(b)));
                     const image = window.btoa(binary);
                     this.userInfo!.picture = prefix + image;
-                    log("Picture: ", this.userInfo!.picture);
                     this.updateImgUi();
                   });
                 })

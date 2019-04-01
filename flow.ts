@@ -73,8 +73,10 @@ const requestor = new NodeRequestor();
 const openIdConnectUrl = "https://sod.superoffice.com/login";
 
 /* example client configuration */
-const clientId = "6cf25376616343b38d14ddcd804f2891";
-const clientSecret = "17f78229e442772a78df5f554e24a970";
+const clientId = "";
+const clientSecret = "";
+const sod_jwks_uri = "https://sod.superoffice.com/login/.well-known/jwks";
+const sod_signing_key = "Frf7jD-asGiFqADGTmTJfEq16Yw";
 const redirectUri = "http://127.0.0.1:8000";
 const scope = "openid";
 
@@ -192,12 +194,10 @@ export class AuthFlow {
       refresh_token: undefined,
       extras: extras
     });
-    log("Token request: ", request);
 
     return this.tokenHandler
       .performTokenRequest(this.configuration, request)
       .then(response => {
-        log(`Refresh Token is ${response.refreshToken}`);
         log("Validating id_token...");
         this.refreshToken = response.refreshToken;
         this.accessTokenResponse = response;
@@ -298,10 +298,10 @@ export class AuthFlow {
     return new Promise(function(resolve, reject) {
       var client = jwksRsa({
         cache: true,
-        jwksUri: `https://sod.superoffice.com/login/.well-known/jwks`
+        jwksUri: sod_jwks_uri
       });
 
-      client.getSigningKey("Frf7jD-asGiFqADGTmTJfEq16Yw", function(err, key) {
+      client.getSigningKey(sod_signing_key, function(err, key) {
         if (err) {
           reject(err);
         } else {
