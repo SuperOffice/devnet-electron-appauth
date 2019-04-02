@@ -9,7 +9,7 @@ or business entity may ever claim rights to this projects code.
 
 Certain parts of this code is copyright by Google, which has
 been licensed under the Apache License, Version 2.0,
-http://www.apache.org/licenses/LICENSE-2.0.
+[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 ## Contributing a Patch
 
