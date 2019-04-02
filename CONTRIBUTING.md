@@ -2,32 +2,22 @@
 
 ## Contributor License Agreements
 
-We'd love to accept your patches! Before we can take them, we
-have to jump a couple of legal hurdles.
+We'd love to accept your patches! Know that all submissions are open
+source and considered community content, freely shared amongst fellow
+SuperOffice community developer members, and no person, group of people,
+or business entity may ever claim rights to this projects code.
 
-Please fill out either the individual or corporate Contributor License Agreement
-(CLA).
-
-  * If you are an individual writing original source code and you're sure you
-    own the intellectual property, then you'll need to sign an [individual CLA]
-    (http://code.google.com/legal/individual-cla-v1.0.html).
-  * If you work for a company that wants to allow you to contribute your work,
-    then you'll need to sign a [corporate CLA]
-    (http://code.google.com/legal/corporate-cla-v1.0.html).
-
-Follow either of the two links above to access the appropriate CLA and
-instructions for how to sign and return it. Once we receive it, we'll be able to
-accept your pull requests.
+Certain parts of this code is copyright by Google, which has
+been licensed under the Apache License, Version 2.0,
+http://www.apache.org/licenses/LICENSE-2.0.
 
 ## Contributing a Patch
 
-1. Sign a Contributor License Agreement, if you have not yet done so (see
-   details above).
-2. Create your change to the repo in question.
-    * Fork the desired repo, develop and test your code changes.
-    * Ensure that your code is clear and comprehensible.
-    * Ensure that your code has an appropriate set of unit tests which all pass.
-3. Submit a pull request.
-4. The repo owner will review your request. If it is approved, the change will
+1. Create your change to the repo in question.
+   - Fork the desired repo, develop and test your code changes.
+   - Ensure that your code is clear and comprehensible.
+   - Ensure that your code has an appropriate set of unit tests which all pass.
+2. Submit a pull request.
+3. The repo owner will review your request. If it is approved, the change will
    be merged. If it needs additional work, the repo owner will respond with
    useful comments.
