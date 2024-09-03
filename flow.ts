@@ -209,7 +209,7 @@ export class AuthFlow {
 
         return response;
       })
-      .then(() => {});
+      .then(() => { });
   }
 
   loggedIn(): boolean {
@@ -237,8 +237,8 @@ export class AuthFlow {
     // only verifies expiration time
     if (
       this.accessTokenResponse &&
-      this.accessTokenResponse.isValid() &&
-      this.idTokenIsValid(this.accessTokenResponse, authTenantInfo)
+        this.accessTokenResponse.isValid() &&
+        this.idTokenIsValid(this.accessTokenResponse, authTenantInfo)
     ) {
       return Promise.resolve(authTenantInfo);
     }
@@ -285,7 +285,7 @@ export class AuthFlow {
     return false;
   }
 
-  async validateJwtToken(token: string | undefined): Promise<{}> {
+  async validateJwtToken(token: string | undefined) {
     if (!token) {
       return {};
     }
@@ -305,14 +305,14 @@ export class AuthFlow {
         if (err) {
           reject(err);
         } else {
-          var signingKey = key.publicKey || key.rsaPublicKey;
+          var signingKey = key.getPublicKey();
           resolve(signingKey);
         }
       });
     });
   }
 
-  validateToken(token: string, publicKey: string) {
+  validateToken(token: string, publicKey: string): Promise<string | jwt.JwtPayload | undefined> {
     return new Promise(function(resolve, reject) {
       var options = { ignoreExpiration: true, algorithm: ["RS256"] };
 
