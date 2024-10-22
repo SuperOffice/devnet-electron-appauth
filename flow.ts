@@ -305,7 +305,7 @@ export class AuthFlow {
         if (err) {
           reject(err);
         } else {
-          var signingKey = key.getPublicKey();
+          var signingKey = key?.getPublicKey();
           resolve(signingKey);
         }
       });
